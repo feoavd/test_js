@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Викторина о Сергее Лазареве</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+   
+    <header>
+        <div class="header-image">
+            <img src="https://sun9-8.userapi.com/impf/63p3UQgS2lwgF6WEYDa8HYg-jYElMpOb_w6odw/p8a4gECGylw.jpg?size=1920x768&quality=95&crop=0,109,980,391&sign=e2504704849f38989570e7570d4675b6&type=cover_group" alt="Сергей Лазарев">
+            <div class="header-overlay">
+                <h1>Проверьте свои знания о Сергее Лазареве</h1>
+                <p>Ответьте на вопросы и узнайте много интересного</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Вопрос 1 -->
+        <div class="question-container active" id="question1">
+            <div class="question-header">
+                <div class="question-number">Вопрос 1</div>
+                <div class="question-points">1 балл</div>
+            </div>
+            <p class="question-text">Почему Сергей так доволен?</p>
+            <div class="question-image">
+                <img src="./images/pochemy.webp" alt="Почему Сергей доволен?">
+            </div>
+            
+            <div class="options">
+                <div class="option" data-question="1" data-value="1">
+                    <span class="option-letter">A</span>
+                    <span class="option-text">Он выиграл в лотерею</span>
+                </div>
+                <div class="option" data-question="1" data-value="2">
+                    <span class="option-letter">B</span>
+                    <span class="option-text">Он записал новую песню</span>
+                </div>
+                <div class="option" data-question="1" data-value="3">
+                    <span class="option-letter">C</span>
+                    <span class="option-text">Он купил новый дом</span>
+                </div>
+                <div class="option" data-question="1" data-value="4">
+                    <span class="option-letter">D</span>
+                    <span class="option-text">Он стал отцом</span>
+                </div>
+            </div>
+            
+            <div class="question-footer">
+                <button class="hint-btn" data-hint="1">
+                    <i class="fas fa-lightbulb"></i> Подсказка
+                </button>
+                <div class="hint-content" id="hint1">
+                    Недавно у Сергея была крупная денежная победа!
+                </div>
+            </div>
+            
+            <div class="result" id="result1"></div>
+        </div>
+
+        <!-- Вопрос 2 -->
+        <div class="question-container" id="question2">
+            <div class="question-header">
+                <div class="question-number">Вопрос 2</div>
+                <div class="question-points">1 балл</div>
+            </div>
+            <p class="question-text">Сколько лет Сергею Лазареву?</p>
+            <div class="question-image">
+                <img src="./images/oprosik.jpg" alt="Сергей Лазарев">
+            </div>
+            
+            <div class="input-container">
+                <input type="number" class="input-answer" id="answer2" placeholder="Введите возраст" min="0" max="100">
+                <button class="check-btn" id="check2">
+                    <i class="fas fa-check"></i> Проверить
+                </button>
+            </div>
+            
+            <div class="question-footer">
+                <button class="hint-btn" data-hint="2">
+                    <i class="fas fa-lightbulb"></i> Подсказка
+                </button>
+                <div class="hint-content" id="hint2">
+                    Родился в 1983 году. Посчитайте!
+                </div>
+            </div>
+            
+            <div class="result" id="result2"></div>
+        </div>
+
+        <!-- Вопрос 3 -->
+        <div class="question-container" id="question3">
+            <div class="question-header">
+                <div class="question-number">Вопрос 3</div>
+                <div class="question-points">2 балла</div>
+            </div>
+            <p class="question-text">В каких телепроектах участвовал Сергей Лазарев? (можно выбрать несколько)</p>
+            <div class="question-image">
+                <img src="./images/telepro.webp" alt="Телепроекты">
+            </div>
+            
+            <div class="options">
+                <div class="option checkbox-option" data-question="3" data-value="1">
+                    <span class="checkbox">
+                        <i class="fas fa-check"></i>
+                    </span>
+                    <span class="option-text">Голос</span>
+                </div>
+                <div class="option checkbox-option" data-question="3" data-value="2">
+                    <span class="checkbox">
+                        <i class="fas fa-check"></i>
+                    </span>
+                    <span class="option-text">Евровидение</span>
+                </div>
+                <div class="option checkbox-option" data-question="3" data-value="3">
+                    <span class="checkbox">
+                        <i class="fas fa-check"></i>
+                    </span>
+                    <span class="option-text">Танцы со звездами</span>
+                </div>
+                <div class="option checkbox-option" data-question="3" data-value="4">
+                    <span class="checkbox">
+                        <i class="fas fa-check"></i>
+                    </span>
+                    <span class="option-text">Форт Боярд</span>
+                </div>
+            </div>
+            
+            <div class="question-footer">
+                <button class="check-btn" id="check3" disabled>
+                    <i class="fas fa-check"></i> Проверить выбранное
+                </button>
+                <button class="hint-btn" data-hint="3">
+                    <i class="fas fa-lightbulb"></i> Подсказка
+                </button>
+                <div class="hint-content" id="hint3">
+                    Сергей танцевал на ТВ и представлял Россию на международном конкурсе!
+                </div>
+            </div>
+            
+            <div class="result" id="result3"></div>
+        </div>
+
+        <!-- Вопрос 4 -->
+        <div class="question-container" id="question4">
+            <div class="question-header">
+                <div class="question-number">Вопрос 4</div>
+                <div class="question-points">1 балл</div>
+            </div>
+            <p class="question-text">Продолжи песню: "Я В ГЛАЗАХ ТВОИХ ... В ОКЕАНЕ"</p>
+            <div class="question-image">
+                <img src="./images/snegi.webp" alt="Снегири">
+            </div>
+            
+            <div class="input-container">
+                <input type="text" class="input-answer" id="answer4" placeholder="Введите продолжение">
+                <button class="check-btn" id="check4">
+                    <i class="fas fa-check"></i> Проверить
+                </button>
+            </div>
+            
+            <div class="question-footer">
+                <button class="hint-btn" data-hint="4">
+                    <i class="fas fa-lightbulb"></i> Подсказка
+                </button>
+                <div class="hint-content" id="hint4">
+                   Все хотят летом в жару
+                </div>
+            </div>
+            
+            <div class="result" id="result4"></div>
+        </div>
+
+        <!-- Вопрос 5 -->
+        <div class="question-container find-question" id="question5">
+            <div class="question-header">
+                <div class="question-number">Вопрос 5</div>
+                <div class="question-points">1 балл</div>
+            </div>
+            <p class="question-text">Найдите Сергея Лазарева на фото (кликните на него)</p>
+            <div class="question-image">
+                <img src="./images/GDEON.jpg" alt="Найди Сергея" id="sergeiImage">
+                <div class="image-overlay">Кликните на Сергея</div>
+            </div>
+            
+            <div class="question-footer">
+                <button class="hint-btn" data-hint="5">
+                    <i class="fas fa-lightbulb"></i> Подсказка
+                </button>
+            </div>
+            
+            <div class="result" id="result5"></div>
+        </div>
+
+        <!-- Вопрос 6 -->
+        <div class="question-container" id="question6">
+            <div class="question-header">
+                <div class="question-number">Вопрос 6</div>
+                <div class="question-points">1 балл</div>
+            </div>
+            <p class="question-text">Какой рост у Сергея Лазарева?</p>
+            <div class="question-image erg">
+                <img src="./images/erg.png" alt="Рост и вес">
+            </div>
+            
+            <div class="input-container">
+                <input type="number" class="input-answer" id="answer6" placeholder="Введите рост в см" min="150" max="210">
+                <button class="check-btn" id="check6">
+                    <i class="fas fa-check"></i> Проверить
+                </button>
+            </div>
+            
+            <div class="question-footer">
+                <button class="hint-btn" data-hint="6">
+                    <i class="fas fa-lightbulb"></i> Подсказка
+                </button>
+                <div class="hint-content" id="hint6">
+                    Рост между 180 и 185 см, идеальный для сцены!
+                </div>
+            </div>
+            
+            <div class="result" id="result6"></div>
+        </div>
+
+        <!-- Результат и переход на следующую страницу -->
+        <div class="result-container" id="finalResult">
+            <div class="result-content">
+                <h2><i class="fas fa-trophy"></i> Результаты викторины</h2>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="totalScore">0</span>
+                        <span class="score-label">баллов</span>
+                    </div>
+                    <div class="score-text">
+                        <p>Вы набрали <span id="scoreOutOf">0</span> из 7 возможных баллов</p>
+                        <div class="score-message" id="scoreMessage"></div>
+                    </div>
+                </div>
+                <button class="next-page-btn" id="nextPageBtn" disabled>
+                    <i class="fas fa-arrow-right"></i> Перейти к следующей части
+                </button>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
