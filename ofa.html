@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ОТЫЩИ!</title>
+    <style>
+        /* Стили из предыдущего примера */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            transition: opacity 0.5s ease;
+        }
+
+        .container {
+            text-align: center;
+            perspective: 1000px;
+        }
+
+        .scene {
+            width: 300px;
+            height: 300px;
+            margin: 120px;
+            perspective: 1000px;
+        }
+
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s ease, scale 1s ease;
+        }
+
+        .face {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-sizing: border-box;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            opacity: 0.95;
+        }
+
+        .face.correct {
+            border: 3px solid #4CAF50;
+            box-shadow: 0 0 30px #4CAF50;
+        }
+
+        .front { transform: rotateY( 0deg) translateZ(150px); }
+        .right { transform: rotateY( 90deg) translateZ(150px); }
+        .back { transform: rotateY(180deg) translateZ(150px); }
+        .left { transform: rotateY(-90deg) translateZ(150px); }
+        .top { transform: rotateX( 90deg) translateZ(150px); }
+        .bottom { transform: rotateX(-90deg) translateZ(150px); }
+
+        .message {
+            color: white;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: white;">Найдите на кубике Джо Дассена</h1>
+        
+        <div class="scene">
+            <div class="cube" id="cube">
+                <div class="face front" data-face="front"></div>
+                <div class="face right" data-face="right"></div>
+                <div class="face back" data-face="back"></div>
+                <div class="face left" data-face="left"></div>
+                <div class="face top" data-face="top"></div>
+                <div class="face bottom" data-face="bottom"></div>
+            </div>
+        </div>
+
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        const photos = [
+            './images/broen.webp',
+            './images/Joe_Dassin_1960s.jpg',
+            './images/chervik.webp',
+            './images/serynchik.png',
+            './images/dordon.jpg',
+            './images/muzhik.jpg'
+        ];
+
+        const CORRECT_FACE = 'right';
+        let isRotating = true;
+        let rotation = { x: 330, y: 330 };
+        let cube = document.getElementById('cube');
+        let message = document.getElementById('message');
+
+        // Инициализация куба
+        function initCube() {
+            const faces = document.querySelectorAll('.face');
+            faces.forEach((face, index) => {
+                face.style.backgroundImage = `url('${photos[index]}')`;
+                face.addEventListener('click', handleFaceClick);
+            });
+        }
+
+        // Обработчик клика
+        function handleFaceClick(event) {
+            const face = event.currentTarget;
+            const faceType = face.getAttribute('data-face');
+            
+            if (faceType === CORRECT_FACE) {
+                face.classList.add('correct');
+                
+                isRotating = false;
+                
+                cube.style.transform = `scale(1.3) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`;
+                
+                showMessage('Правильно! Переходим на следующую страницу...', 'success');
+                
+                setTimeout(() => {
+                    document.body.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        window.location.href = 'index3.html';
+                    }, 500);
+                }, 2000);
+            } else {
+                showMessage('Неправильно. Ищите ДЖОООО!', 'error');
+            }
+        }
+
+        function showMessage(text, type) {
+            message.textContent = text;
+            message.style.display = 'block';
+            message.style.color = type === 'success' ? '#4CAF50' : '#ff6b6b';
+        }
+
+        function animateCube() {
+            if (isRotating) {
+                rotation.y += 0.6;
+                cube.style.transform = `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`;
+            }
+            requestAnimationFrame(animateCube);
+        }
+
+        window.onload = function() {
+            initCube();
+            animateCube();
+        };
+                function enableDragRotation() {
+            let drag = false;
+            let lastX = 0, lastY = 0;
+            
+            cube.onmousedown = (e) => {
+                drag = true;
+                lastX = e.clientX;
+                lastY = e.clientY;
+                return false;
+            };
+            
+            document.onmousemove = (e) => {
+                if (!drag) return;
+                rotation.y += (e.clientX - lastX) * 0.5;
+                rotation.x -= (e.clientY - lastY) * 0.3;
+                lastX = e.clientX;
+                lastY = e.clientY;
+            };
+            
+            document.onmouseup = () => drag = false;
+        }
+
+        // Вызовите эту функцию после загрузки
+        enableDragRotation();
+    </script>
+</body>
+</html>
