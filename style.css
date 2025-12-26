@@ -26,7 +26,7 @@ body {
 .progress-bar {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #a8d8ea, #7ac5d8);
+    background: linear-gradient(90deg, #70e0ac, #7ac5d8);
     transition: width 0.5s ease;
 }
 
@@ -57,8 +57,7 @@ header {
     margin: 40px 0px 0px 450px;
     top: 0;
     left: 0;
-    background-color: #ffffff50;
-    width: 600px;
+    width: 900px;
     height: 70%;
     display: flex;
     flex-direction: column;
@@ -69,16 +68,17 @@ header {
 }
 
 .header-overlay h1 {
-    color: #000000;
-    font-size: 2.2rem;
+    color: #ffffff;
     margin-bottom: 10px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 3rem;
 }
 
 .header-overlay p {
-    color: #000000;
+    color: #ffffff;
     font-size: 1.1rem;
     max-width: 600px;
+    font-size: 2rem;
 }
 
 .question-container {
@@ -107,12 +107,12 @@ header {
 .question-number {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #7ac5d8;
+    color: #30643f;
 }
 
 .question-points {
-    background-color: #f0f7ff;
-    color: #5a9bb8;
+    background-color: #abceb6;
+    color: #30643f;
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 0.9rem;
@@ -147,7 +147,7 @@ header {
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: rgba(122, 197, 216, 0.9);
+    background-color: rgba(122, 216, 169, 0.9);
     color: white;
     padding: 8px 15px;
     border-radius: 5px;
@@ -173,15 +173,15 @@ header {
 }
 
 .option:hover {
-    background-color: #f0f7ff;
-    border-color: #a8d8ea;
+    background-color: #c3f5ca;
+    border-color: #88dfb6;
     transform: translateY(-2px);
 }
 
 .option.selected {
-    background-color: #e1f2f8;
-    border-color: #7ac5d8;
-    color: #5a9bb8;
+    background-color: #e1f8e8;
+    border-color: #70a78b;
+    color: #5ab86a;
 }
 
 .option.correct {
@@ -202,7 +202,7 @@ header {
     justify-content: center;
     width: 30px;
     height: 30px;
-    background-color: #a8d8ea;
+    background-color: #439770;
     color: white;
     border-radius: 50%;
     margin-right: 15px;
@@ -223,7 +223,7 @@ header {
     justify-content: center;
     width: 24px;
     height: 24px;
-    border: 2px solid #a8d8ea;
+    border: 2px solid #999999;
     border-radius: 5px;
     margin-right: 15px;
     color: transparent;
@@ -231,7 +231,7 @@ header {
 }
 
 .checkbox-option.selected .checkbox {
-    background-color: #7ac5d8;
+    background-color: #7ad882;
     color: white;
 }
 
@@ -253,12 +253,12 @@ header {
 
 .input-answer:focus {
     outline: none;
-    border-color: #7ac5d8;
+    border-color: #7ad88a;
     box-shadow: 0 0 0 3px rgba(122, 197, 216, 0.2);
 }
 
 .check-btn {
-    background-color: #7ac5d8;
+    background-color: #5baf7e;
     color: white;
     border: none;
     border-radius: 10px;
@@ -273,7 +273,7 @@ header {
 }
 
 .check-btn:hover {
-    background-color: #5a9bb8;
+    background-color: #52c46f;
     transform: translateY(-2px);
 }
 
@@ -298,7 +298,7 @@ header {
 .hint-btn {
     background-color: transparent;
     color: #000000;
-    border: 2px solid #a8d8ea;
+    border: 2px solid #158d55;
     border-radius: 10px;
     padding: 10px 20px;
     font-size: 0.95rem;
@@ -310,17 +310,16 @@ header {
 }
 
 .hint-btn:hover {
-    background-color: #f0f7ff;
+    background-color: #acf0c6;
 }
 
 .hint-content {
     display: none;
-    background-color: #fff9e6;
-    border-left: 4px solid #ffd166;
+    background-color: #c9f3d6;
     padding: 15px;
     border-radius: 8px;
     margin-top: 15px;
-    color: #8a7a5a;
+    color: #000000;
     font-size: 0.95rem;
 }
 
@@ -373,7 +372,7 @@ header {
 }
 
 .result-content h2 {
-    color: #7ac5d8;
+    color: #7ad896;
     margin-bottom: 25px;
     display: flex;
     align-items: center;
@@ -392,7 +391,7 @@ header {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #a8d8ea, #7ac5d8);
+    background: linear-gradient(135deg, #a8eab9, #7ad892);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -421,7 +420,7 @@ header {
 
 .score-text #scoreOutOf {
     font-weight: 700;
-    color: #7ac5d8;
+    color: #a0d87a;
 }
 
 .score-message {
@@ -433,7 +432,7 @@ header {
 }
 
 .next-page-btn {
-    background: linear-gradient(135deg, #7ac5d8, #5a9bb8);
+    background: linear-gradient(135deg, #98d87a, #5ab86e);
     color: white;
     border: none;
     border-radius: 10px;
@@ -447,12 +446,12 @@ header {
     justify-content: center;
     gap: 10px;
     margin: 25px auto 0;
-    box-shadow: 0 5px 15px rgba(122, 197, 216, 0.3);
+    box-shadow: 0 5px 15px rgba(122, 216, 146, 0.3);
 }
 
 .next-page-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(122, 197, 216, 0.4);
+    box-shadow: 0 8px 20px rgba(130, 216, 122, 0.4);
 }
 
 .next-page-btn:active {
